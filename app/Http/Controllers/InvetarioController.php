@@ -21,7 +21,7 @@ class InvetarioController extends Controller
      */
     public function create()
     {
-        //
+         return view('inventario.create');
     }
 
     /**
@@ -29,7 +29,15 @@ class InvetarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $inventario = new  Inventario();
+
+        $inventario->nombre = $request['nombre'];
+        $inventario->tipo = $request['tipo'];
+        $inventario->descripcion = $request['descripcion'];
+       
+        $inventario->save();
+
+        return redirect()->route('inventario.index')->with('success', 'Se ha Registrado exitosamente');
     }
 
     /**
@@ -45,7 +53,8 @@ class InvetarioController extends Controller
      */
     public function edit(string $id)
     {
-        //
+         $inventario = Inventario::find($id);
+         return view('inventario.update', compact('inventario'));
     }
 
     /**
@@ -53,7 +62,15 @@ class InvetarioController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $inventario = Inventario::find($id);
+
+        $inventario->nombre = $request['nombre'];
+        $inventario->tipo = $request['tipo'];
+        $inventario->descripcion = $request['descripcion'];
+       
+        $inventario->save();
+
+        return redirect()->route('inventario.index')->with('success', 'Se ha Actualizado exitosamente');
     }
 
     /**
@@ -61,6 +78,9 @@ class InvetarioController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $inventario = Inventario::find($id);
+          $inventario->delete();
+
+        return redirect()->route('inventario.index')->with('danger', 'Registro eliminado existosamente');
     }
 }
