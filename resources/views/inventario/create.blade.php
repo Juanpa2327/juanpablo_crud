@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        @livewireStyles
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
@@ -28,50 +30,49 @@
                 </div>
             </div>
 
-    <div class="content">
-        <div class="contaider-fluid">
-            <div class="row">
-                <div class="col-md-12">
-                    <form action="{{ route('inventario.store') }}" method="post" class="form-horizontal">
-                        @csrf
-                        <div class="card">
-                            <div class="card-header card-header-info">
-                                <h4 class="card-title">INVENTARIO</h4>
-                                <p class="card-category">Ingresar datos</p>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    <label form="name" class="col-sm-2 col-form-label">Nombre</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="nombre" id="nombre" autofocus>
+            <div class="content">
+                <div class="contaider-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form action="{{ route('inventario.store') }}" method="post" class="form-horizontal">
+                                @csrf
+                                <div class="card">
+                                    <div class="card-header card-header-info">
+                                        <h4 class="card-title">INVENTARIO</h4>
+                                        <p class="card-category">Ingresar datos</p>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <label form="name" class="col-sm-2 col-form-label">Tipo</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="tipo" id="tipo" autofocus>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <label form="name" class="col-sm-2 col-form-label">Nombre</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" name="nombre" id="nombre" autofocus>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label form="name" class="col-sm-2 col-form-label">Tipo</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" name="tipo" id="tipo" autofocus>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <label form="name" class="col-sm-2 col-form-label">Descripcion</label>
+                                            <div class="col-sm-7">
+                                                <input type="text" class="form-control" name="descripcion" id="descripcion" autofocus>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <label form="name" class="col-sm-2 col-form-label">Descripcion</label>
-                                    <div class="col-sm-7">
-                                        <input type="text" class="form-control" name="descripcion" id="descripcion" autofocus>
+                                    <!--Footer-->
+                                    <div class="card-footer ml-auto mr-auto">
+                                        <button type="submit" class="btn bg-info">Guardar</button>
                                     </div>
+                                    <!--End footer-->
                                 </div>
-                            </div>
-                            <!--Footer-->
-                            <div class="card-footer ml-auto mr-auto">
-                                <button type="submit" class="btn bg-info">Guardar</button>
-                            </div>
-                            <!--End footer-->
+                            </form>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-        </div>
-
-
+        @livewireScripts
     </body>
 </html>

@@ -45,7 +45,7 @@ class InvetarioController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return view('inventario.search');
     }
 
     /**
